@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+   default-init-method = "init" 
+   default-destroy-method = "destroy"
+   >
+   
+   	<bean id="parentTemplate" abstract="true">
+   		<property name="defaultTitle" value="Default Title"></property>
+   	</bean>
+
+	<bean id="helloWorld" class="com.vivek.genericspring.models.HelloWorld" parent="parentTemplate">
+	</bean>
+
+	<bean id="chatroom" class="com.vivek.genericspring.models.ChatRoom" scope="prototype" parent="parentTemplate">
+	</bean>
+	
+	<bean id="texteditor" class="com.vivek.genericspring.models.TextEditor" scope="prototype">
+		<constructor-arg>
+			<bean class="com.vivek.genericspring.models.SpellChecker"></bean>
+		</constructor-arg>
+		
+		<!-- <property name="spellChecker" ref="spellchecker">
+		<bean class="com.vivek.genericspring.models.SpellChecker"></bean>
+		</property> -->
+	</bean>
+	
+	
+	<bean class="com.vivek.genericspring.BeanPostProcessorImpl"></bean>
+
+</beans>
