@@ -6,9 +6,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.vivek.genericspring.services.SimpleMovieLister;
 
-public class App
+public class AppAnnotationBeans
 {
-	private static Logger log = LoggerFactory.getLogger(App.class);
+	private static Logger log = LoggerFactory.getLogger(AppAnnotationBeans.class);
     public static void main(String args[]){
         log.info( "Hello World!" );
         
